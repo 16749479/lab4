@@ -29,7 +29,30 @@ struct Node
 
 typedef Node* PNode;
 
+void add(PNode& h, PNode& t, Unemployed dat)
+{
+	PNode n;
 
+
+	n = new Node;
+	n->next = 0;
+
+	if (!n)
+	{
+		cout << "нет свободной памяти" << endl;
+		return;
+	}
+
+	if (!h)
+		h = t = n;
+	else
+	{
+		t->next = n;
+		t = n;
+	}
+	n->data = dat;
+	cout << "элемнт создан" << endl;
+}
 
 
 
@@ -42,3 +65,5 @@ int main()
 	PNode h, t, a, b;
 	h = t = a = b = NULL;
 }
+
+
