@@ -54,18 +54,6 @@ void add(PNode& h, PNode& t, Unemployed dat)
 	cout << "элемнт создан" << endl;
 }
 
-
-
-int main()
-{
-	SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
-	int n;
-	string f;
-	PNode h, t, a, b;
-	h = t = a = b = NULL;
-}
-
 void del(PNode& h, PNode& t)
 {
 	PNode p;
@@ -108,4 +96,44 @@ void see(PNode h)
 
 		h1 = h1->next;
 	} while (h1 != NULL);
+}
+
+int main()
+{
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	int n;
+	string f;
+	PNode h, t, a, b;
+	h = t = a = b = NULL;
+}
+
+while (1)
+{
+	cout << "Вид операции " << endl;
+	cout << "1 - создать очередь Unemployed" << endl;
+	cout << "2 - вывод содержимого очереди Unemployed" << endl;
+	cout << "3 - удаление элементов очереди Unemployed" << endl;
+	cout << "4 - создать очередь групп Group" << endl;
+	cout << "5 - вывод содержимого очереди Group" << endl;
+	cout << "6 - удаление элементов очереди Group" << endl;
+	cout << "7 - оконьчить " << endl;
+	fflush(stdin);
+	switch (_getch())
+	{
+	case '1': cout << "введите количество элементов " << endl;
+		cin >> n;
+		for (int i = 0; i < n; i++)
+			add(h, t, generateRandomUnemployed());
+		break;
+	case '2': see(h); break;
+	case '3': if (h) del(h, t); break;
+	case '4':
+		sort(h, a, b);
+		break;
+	case '5': see(a); break;
+	case '6':  if (h) del(a, b); break;
+	case '7': return 0; break;
+	default: cout << "Ошибка " << endl;
+	}
 }
