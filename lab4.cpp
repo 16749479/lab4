@@ -251,6 +251,62 @@ void sort(PNode h, PNode& a, PNode& b)
 	}
 }
 
+string generateSurname() {
+	string surnames[] = { "Иванов", "Кузнецов", "Соколов", "Попов", "Лебедев", "Морозов", "Волков" };
+	return surnames[rand() % (sizeof(surnames) / sizeof(surnames[0]))];
+}
+
+int generateRandomNumber(int min, int max) {
+	return min + rand() % (max - min + 1);
+}
+
+char generateGender() {
+	return rand() % 2 == 0 ? 'М' : 'Ж';
+}
+
+string generateEducation() {
+	string educations[] = { "Бакалавриат", "Магистр", "Доктор наук" };
+	return educations[rand() % (sizeof(educations) / sizeof(educations[0]))];
+}
+
+string generateProfession() {
+	string professions[] = { "Инженер", "Врач", "Педагог", "Художник", "Повар", "Юрист" };
+	return professions[rand() % (sizeof(professions) / sizeof(professions[0]))];
+}
+
+string generateDate() {
+	int year = generateRandomNumber(2000, 2024);
+	int month = generateRandomNumber(1, 12);
+	int day = generateRandomNumber(1, 28);
+	return to_string(year) + "-" + to_string(month) + "-" + to_string(day);
+}
+
+double generateSalary() {
+	return generateRandomNumber(1000, 10000);
+}
+
+string generatePosition() {
+	string positions[] = { "Менеджер", "Разработчик", "Бухгалтер", "Проектировщик", "Аналитик" };
+	return positions[rand() % (sizeof(positions) / sizeof(positions[0]))];
+}
+
+Unemployed generateRandomUnemployed() {
+	Unemployed p;
+	p.surname = generateSurname();
+	p.age = generateRandomNumber(20, 65);
+	p.gender = generateGender();
+	p.education = generateEducation();
+	p.profession = generateProfession();
+	p.position = generatePosition();
+	p.last_position_experience = generateRandomNumber(0, 20);
+	p.total_experience = generateRandomNumber(p.last_position_experience, 40);
+	p.registration_date = generateDate();
+	p.desired_salary = generateSalary();
+	p.desired_position = generatePosition();
+	return p;
+}
+
+
 int main()
 {
 	SetConsoleCP(1251);
