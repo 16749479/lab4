@@ -28,3 +28,17 @@ struct Node
 };
 
 typedef Node* PNode;
+
+
+
+
+
+int main()
+{
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	int n;
+	string f;
+	PNode h, t, a, b;
+	h = t = a = b = NULL;
+}
